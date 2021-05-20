@@ -1,0 +1,1967 @@
+<!DOCTYPE html>
+<!-- KaTeX requires the use of the HTML5 doctype. Without it, KaTeX may not render properly -->
+<html style="margin: auto;">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.css" integrity="sha384-Cqd8ihRLum0CCg8rz0hYKPoLZ3uw+gES2rXQXycqnL5pgVQIflxAUDS7ZSjITLb5" crossorigin="anonymous">
+
+  <!-- The loading of KaTeX is deferred to speed up page rendering -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/katex.min.js" integrity="sha384-1Or6BdeNQb0ezrmtGeqQHFpppNd7a/gw29xeiSikBbsb44xu3uAo8c7FwbF5jhbd" crossorigin="anonymous"></script>
+
+  <!-- To automatically render math in text elements, include the auto-render extension: -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.2/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+  <style>
+    @import url(https://cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css);
+
+    /**
+      * prism.js Github theme based on GitHub's theme.
+      * @author Sam Clarke
+      */
+
+    details h2 {
+      display: inline;
+    }
+
+    * {
+      box-sizing: border-box;
+      color: black;
+      max-width: 900px;
+      font-family: "Computer Modern Sans", sans-serif;
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+      color: #333;
+      background: none;
+      font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      word-break: normal;
+      word-wrap: normal;
+      line-height: 1.4;
+      -moz-tab-size: 8;
+      -o-tab-size: 8;
+      tab-size: 8;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+    }
+
+
+    /* Code blocks */
+
+    pre[class*="language-"] {
+      padding: .8em;
+      overflow: auto;
+      /* border: 1px solid #ddd; */
+      border-radius: 3px;
+      /* background: #fff; */
+      background: #f5f5f5;
+    }
+
+
+    /* Inline code */
+
+    :not(pre)>code[class*="language-"] {
+      padding: .1em;
+      border-radius: .3em;
+      white-space: normal;
+      background: #f5f5f5;
+    }
+
+    .token.comment,
+    .token.blockquote {
+      color: #969896;
+    }
+
+    .token.cdata {
+      color: #183691;
+    }
+
+    .token.doctype,
+    .token.punctuation,
+    .token.variable,
+    .token.macro.property {
+      color: #333;
+    }
+
+    .token.operator,
+    .token.important,
+    .token.keyword,
+    .token.rule,
+    .token.builtin {
+      color: #a71d5d;
+    }
+
+    .token.string,
+    .token.url,
+    .token.regex,
+    .token.attr-value {
+      color: #183691;
+    }
+
+    .token.property,
+    .token.number,
+    .token.boolean,
+    .token.entity,
+    .token.atrule,
+    .token.constant,
+    .token.symbol,
+    .token.command,
+    .token.code {
+      color: #0086b3;
+    }
+
+    .token.tag,
+    .token.selector,
+    .token.prolog {
+      color: #63a35c;
+    }
+
+    .token.function,
+    .token.namespace,
+    .token.pseudo-element,
+    .token.class,
+    .token.class-name,
+    .token.pseudo-class,
+    .token.id,
+    .token.url-reference .token.variable,
+    .token.attr-name {
+      color: #795da3;
+    }
+
+    .token.entity {
+      cursor: help;
+    }
+
+    .token.title,
+    .token.title .token.punctuation {
+      font-weight: bold;
+      color: #1d3e81;
+    }
+
+    .token.list {
+      color: #ed6a43;
+    }
+
+    .token.inserted {
+      background-color: #eaffea;
+      color: #55a532;
+    }
+
+    .token.deleted {
+      background-color: #ffecec;
+      color: #bd2c00;
+    }
+
+    .token.bold {
+      font-weight: bold;
+    }
+
+    .token.italic {
+      font-style: italic;
+    }
+
+
+    /* JSON */
+
+    .language-json .token.property {
+      color: #183691;
+    }
+
+    .language-markup .token.tag .token.punctuation {
+      color: #333;
+    }
+
+
+    /* CSS */
+
+    code.language-css,
+    .language-css .token.function {
+      color: #0086b3;
+    }
+
+
+    /* YAML */
+
+    .language-yaml .token.atrule {
+      color: #63a35c;
+    }
+
+    code.language-yaml {
+      color: #183691;
+    }
+
+
+    /* Ruby */
+
+    .language-ruby .token.function {
+      color: #333;
+    }
+
+
+    /* Markdown */
+
+    .language-markdown .token.url {
+      color: #795da3;
+    }
+
+
+    /* Makefile */
+
+    .language-makefile .token.symbol {
+      color: #795da3;
+    }
+
+    .language-makefile .token.variable {
+      color: #183691;
+    }
+
+    .language-makefile .token.builtin {
+      color: #0086b3;
+    }
+
+
+    /* Bash */
+
+    .language-bash .token.keyword {
+      color: #0086b3;
+    }
+
+
+    /* highlight */
+
+    pre[data-line] {
+      position: relative;
+      padding: 1em 0 1em 3em;
+    }
+
+    pre[data-line] .line-highlight-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: transparent;
+      display: block;
+      width: 100%;
+    }
+
+    pre[data-line] .line-highlight {
+      position: absolute;
+      left: 0;
+      right: 0;
+      padding: inherit 0;
+      margin-top: 1em;
+      background: hsla(24, 20%, 50%, .08);
+      background: linear-gradient(to right, hsla(24, 20%, 50%, .1) 70%, hsla(24, 20%, 50%, 0));
+      pointer-events: none;
+      line-height: inherit;
+      white-space: pre;
+    }
+
+    pre[data-line] .line-highlight:before,
+    pre[data-line] .line-highlight[data-end]:after {
+      content: attr(data-start);
+      position: absolute;
+      top: .4em;
+      left: .6em;
+      min-width: 1em;
+      padding: 0 .5em;
+      background-color: hsla(24, 20%, 50%, .4);
+      color: hsl(24, 20%, 95%);
+      font: bold 65%/1.5 sans-serif;
+      text-align: center;
+      vertical-align: .3em;
+      border-radius: 999px;
+      text-shadow: none;
+      box-shadow: 0 1px white;
+    }
+
+    pre[data-line] .line-highlight[data-end]:after {
+      content: attr(data-end);
+      top: auto;
+      bottom: .4em;
+    }
+
+    html body {
+      font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+      overflow: initial;
+      box-sizing: border-box;
+      word-wrap: break-word
+    }
+
+    html body>:first-child {
+      margin-top: 0
+    }
+
+    html body h1,
+    html body h2,
+    html body h3,
+    html body h4,
+    html body h5,
+    html body h6 {
+      line-height: 1.2;
+      margin-top: 1em;
+      margin-bottom: 16px;
+      color: #000
+    }
+
+    html body h1 {
+      font-size: 2.25em;
+      font-weight: 300;
+      padding-bottom: .3em
+    }
+
+    html body h2 {
+      font-size: 1.75em;
+      font-weight: 400;
+      padding-bottom: .3em
+    }
+
+    html body h3 {
+      font-size: 1.5em;
+      font-weight: 500
+    }
+
+    html body h4 {
+      font-size: 1.25em;
+      font-weight: 600
+    }
+
+    html body h5 {
+      font-size: 1.1em;
+      font-weight: 600
+    }
+
+    html body h6 {
+      font-size: 1em;
+      font-weight: 600
+    }
+
+    html body h1,
+    html body h2,
+    html body h3,
+    html body h4,
+    html body h5 {
+      font-weight: 600
+    }
+
+    html body h5 {
+      font-size: 1em
+    }
+
+    html body h6 {
+      color: #5c5c5c
+    }
+
+    html body strong {
+      color: #000
+    }
+
+    html body del {
+      color: #5c5c5c
+    }
+
+    html body a:not([href]) {
+      color: inherit;
+      text-decoration: none
+    }
+
+    html body a {
+      color: #08c;
+      text-decoration: none
+    }
+
+    html body a:hover {
+      color: #00a3f5;
+      text-decoration: none
+    }
+
+    html body img {
+      max-width: 100%
+    }
+
+    html body>p {
+      margin-top: 0;
+      margin-bottom: 16px;
+      word-wrap: break-word
+    }
+
+    html body>ul,
+    html body>ol {
+      margin-bottom: 16px
+    }
+
+    html body ul,
+    html body ol {
+      padding-left: 2em
+    }
+
+    html body ul.no-list,
+    html body ol.no-list {
+      padding: 0;
+      list-style-type: none
+    }
+
+    html body ul ul,
+    html body ul ol,
+    html body ol ol,
+    html body ol ul {
+      margin-top: 0;
+      margin-bottom: 0
+    }
+
+    html body li {
+      margin-bottom: 0
+    }
+
+    html body li.task-list-item {
+      list-style: none
+    }
+
+    html body li>p {
+      margin-top: 0;
+      margin-bottom: 0
+    }
+
+    html body .task-list-item-checkbox {
+      margin: 0 .2em .25em -1.8em;
+      vertical-align: middle
+    }
+
+    html body .task-list-item-checkbox:hover {
+      cursor: pointer
+    }
+
+    html body blockquote {
+      margin: 16px 0;
+      font-size: inherit;
+      padding: 0 15px;
+      color: #5c5c5c;
+      background-color: #f0f0f0;
+      border-left: 4px solid #d6d6d6
+    }
+
+    html body blockquote>:first-child {
+      margin-top: 0
+    }
+
+    html body blockquote>:last-child {
+      margin-bottom: 0
+    }
+
+    html body hr {
+      height: 4px;
+      margin: 32px 0;
+      background-color: #d6d6d6;
+      border: 0 none
+    }
+
+    html body table {
+      margin: 10px 0 15px 0;
+      border-collapse: collapse;
+      border-spacing: 0;
+      display: block;
+      width: 100%;
+      overflow: visible;
+      word-break: normal;
+      word-break: keep-all
+    }
+
+    html body table th {
+      font-weight: bold;
+      color: #000
+    }
+
+    html body table td,
+    html body table th {
+      border: 1px solid #d6d6d6;
+      padding: 6px 13px
+    }
+
+    html body dl {
+      padding: 0
+    }
+
+    html body dl dt {
+      padding: 0;
+      margin-top: 16px;
+      font-size: 1em;
+      font-style: italic;
+      font-weight: bold
+    }
+
+    html body dl dd {
+      padding: 0 16px;
+      margin-bottom: 16px
+    }
+
+    html body code {
+      font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+      font-size: .85em !important;
+      color: #000;
+      background-color: #f0f0f0;
+      border-radius: 3px;
+      padding: .2em 0
+    }
+
+    html body code::before,
+    html body code::after {
+      letter-spacing: -0.2em;
+      content: "\00a0"
+    }
+
+    html body pre>code {
+      padding: 0;
+      margin: 0;
+      font-size: .85em !important;
+      word-break: normal;
+      white-space: pre;
+      background: transparent;
+      border: 0
+    }
+
+    html body .highlight {
+      margin-bottom: 16px
+    }
+
+    html body .highlight pre,
+    html body pre {
+      padding: 1em;
+      overflow: auto;
+      font-size: .85em !important;
+      line-height: 1.45;
+      border: #d6d6d6;
+      border-radius: 3px
+    }
+
+    html body .highlight pre {
+      margin-bottom: 0;
+      word-break: normal
+    }
+
+    html body pre code,
+    html body pre tt {
+      display: inline;
+      max-width: initial;
+      padding: 0;
+      margin: 0;
+      overflow: initial;
+      line-height: inherit;
+      word-wrap: normal;
+      background-color: transparent;
+      border: 0
+    }
+
+    html body pre code:before,
+    html body pre tt:before,
+    html body pre code:after,
+    html body pre tt:after {
+      content: normal
+    }
+
+    html body p,
+    html body blockquote,
+    html body ul,
+    html body ol,
+    html body dl,
+    html body pre {
+      margin-top: 0;
+      margin-bottom: 16px
+    }
+
+    html body kbd {
+      color: #000;
+      border: 1px solid #d6d6d6;
+      border-bottom: 2px solid #c7c7c7;
+      padding: 2px 4px;
+      background-color: #f0f0f0;
+      border-radius: 3px
+    }
+
+    @media print {
+      html body {
+        background-color: #fff
+      }
+      html body h1,
+      html body h2,
+      html body h3,
+      html body h4,
+      html body h5,
+      html body h6 {
+        color: #000;
+        page-break-after: avoid
+      }
+      html body blockquote {
+        color: #5c5c5c
+      }
+      html body pre {
+        page-break-inside: avoid
+      }
+      html body table {
+        display: table
+      }
+      html body img {
+        display: block;
+        max-width: 100%;
+        max-height: 100%
+      }
+      html body pre,
+      html body code {
+        word-wrap: break-word;
+        white-space: pre
+      }
+    }
+
+    .markdown-preview {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box
+    }
+
+    .markdown-preview .pagebreak,
+    .markdown-preview .newpage {
+      page-break-before: always
+    }
+
+    .markdown-preview pre.line-numbers {
+      position: relative;
+      padding-left: 3.8em;
+      counter-reset: linenumber
+    }
+
+    .markdown-preview pre.line-numbers>code {
+      position: relative
+    }
+
+    .markdown-preview pre.line-numbers .line-numbers-rows {
+      position: absolute;
+      pointer-events: none;
+      top: 1em;
+      font-size: 100%;
+      left: 0;
+      width: 3em;
+      letter-spacing: -1px;
+      border-right: 1px solid #999;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none
+    }
+
+    .markdown-preview pre.line-numbers .line-numbers-rows>span {
+      pointer-events: none;
+      display: block;
+      counter-increment: linenumber
+    }
+
+    .markdown-preview pre.line-numbers .line-numbers-rows>span:before {
+      content: counter(linenumber);
+      color: #999;
+      display: block;
+      padding-right: .8em;
+      text-align: right
+    }
+
+    .markdown-preview .mathjax-exps .MathJax_Display {
+      text-align: center !important
+    }
+
+    .markdown-preview:not([for="preview"]) .code-chunk .btn-group {
+      display: none
+    }
+
+    .markdown-preview:not([for="preview"]) .code-chunk .status {
+      display: none
+    }
+
+    .markdown-preview:not([for="preview"]) .code-chunk .output-div {
+      margin-bottom: 16px
+    }
+
+    .scrollbar-style::-webkit-scrollbar {
+      width: 8px
+    }
+
+    .scrollbar-style::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: transparent
+    }
+
+    .scrollbar-style::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: rgba(150, 150, 150, 0.66);
+      border: 4px solid rgba(150, 150, 150, 0.66);
+      background-clip: content-box
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]) {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      overflow: auto
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+      position: relative;
+      top: 0
+    }
+
+    @media screen and (min-width:914px) {
+      html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+        padding: 2em calc(50% - 457px + 2em)
+      }
+    }
+
+    @media screen and (max-width:914px) {
+      html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+        padding: 2em
+      }
+    }
+
+    @media screen and (max-width:450px) {
+      html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
+        font-size: 14px !important;
+        padding: 1em
+      }
+    }
+
+    @media print {
+      html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn {
+        display: none
+      }
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn {
+      position: fixed;
+      bottom: 8px;
+      left: 8px;
+      font-size: 28px;
+      cursor: pointer;
+      color: inherit;
+      z-index: 99;
+      width: 32px;
+      text-align: center;
+      opacity: .4
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn {
+      opacity: 1
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 100%;
+      padding: 32px 0 48px 0;
+      font-size: 14px;
+      box-shadow: 0 0 4px rgba(150, 150, 150, 0.33);
+      box-sizing: border-box;
+      overflow: auto;
+      background-color: inherit
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar {
+      width: 8px
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: transparent
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: rgba(150, 150, 150, 0.66);
+      border: 4px solid rgba(150, 150, 150, 0.66);
+      background-clip: content-box
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a {
+      text-decoration: none
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul {
+      padding: 0 1.6em;
+      margin-top: .8em
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li {
+      margin-bottom: .8em
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul {
+      list-style-type: none
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+      left: 300px;
+      width: calc(100% - 300px);
+      padding: 2em calc(50% - 457px - 150px);
+      margin: 0;
+      box-sizing: border-box
+    }
+
+    @media screen and (max-width:1274px) {
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+        padding: 2em
+      }
+    }
+
+    @media screen and (max-width:450px) {
+      html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
+        width: 100%
+      }
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview {
+      left: 50%;
+      transform: translateX(-50%)
+    }
+
+    html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc {
+      display: none
+    }
+
+    :root {
+      --primary-color: #2875d9;
+    }
+
+    a {
+      color: var(--primary-color);
+    }
+
+    img {
+      max-width: 480px;
+      max-height: 600px;
+      display: block;
+      margin: auto;
+      padding: 10px 0;
+    }
+
+    .tooltip {
+      position: relative;
+      color: #990099;
+    }
+
+    .tooltip .base * {
+      color: #990099;
+    }
+
+    .tooltiptext {
+      position: absolute;
+      /* basic styles */
+      min-width: 7cm;
+      padding: 10px;
+      border-radius: 10px;
+      background: #f477f4;
+      color: #000;
+      text-align: left;
+      display: none;
+    }
+
+    .tooltiptext .base * {
+      color: black;
+    }
+
+    .tooltip:hover .tooltiptext {
+      display: block;
+      z-index: 1;
+    }
+
+    .tooltip:hover {
+      background-color: yellow;
+      border-radius: 5px;
+    }
+
+    html {
+      font-size: 12px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    h4 {
+      font-size: 1rem;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    h5 {
+      font-size: 0.9rem;
+    }
+
+    h6 {
+      font-size: 0.8rem;
+    }
+
+    li {
+      margin: 0.4rem 0;
+    }
+
+    blockquote {
+      margin: 5px;
+      padding: 5px;
+    }
+
+    blockquote p {
+      font-style: italic;
+      color: #6f6f6f;
+    }
+
+    table,
+    li,
+    p {
+      font-size: 12px;
+      line-height: 1.2em;
+      text-align: left;
+    }
+
+    tr>td:first-child {
+      width: 200px;
+    }
+
+    tr>td:last-child li {
+      padding-left: 1.5em;
+      text-indent: -1.5em;
+    }
+
+    tr>td:last-child li .tooltiptext {
+      padding-left: 10px;
+      text-indent: 0;
+    }
+
+    th,
+    table {
+      font-weight: normal;
+      overflow: visible;
+    }
+
+    .katex {
+      font-size: 1em;
+    }
+
+    .katex .base {
+      padding-bottom: 0.3em;
+    }
+
+    .katex .mord {
+      font-family: "Computer Modern Serif", serif;
+    }
+
+    @media print {
+      .tooltip {
+        background-color: yellow;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        page-break-after: avoid;
+      }
+      @page {
+        size: A4;
+        margin: 2cm;
+      }
+    }
+  </style>
+  
+</head>
+
+<h4>To do</h4>
+  <ul>
+    <li>
+      See if we need to add the appendix on continuous compounding
+    </li>
+  </ul>
+
+<h1>Finance Formulae</h1>
+
+<details open><summary><h2>Present values</h2></summary>
+  <table>
+    <tr>
+      <td>
+        Stated annual rate to <span class="tooltip">EAR<span class="tooltiptext">Effective annual rate</span></span>
+      </td>
+      <td>
+        $
+        1+EAR=$<span class="tooltip">$\left(1+\dfrac{\text{Stated annual interest rate}}{k}\right)^k$<span class="tooltiptext">Where $k$ is the number of periods</span></span>$\\
+        1+r=\left(1+\dfrac{r}{k}\right)^k
+        $
+      </td>
+    </tr>
+    <tr>
+      <td>Future value formula</td>
+      <td>
+        $FV=$ <span class="tooltip">$C$<span class="tooltiptext">This is the cash flow</span></span><span class="tooltip">$(1+r)^T$<span class="tooltiptext">$r$ is the interest rate and $T$ is the number of periods. For reference, if the tals
+          about discount factors, it is just the inverse of $(1+r)^T$ and instead of dividing you just multiply because it is mathematically the same.
+        </span></span>
+      </td>
+    </tr>
+    <tr>
+      <td>Present value</td>
+      <td>
+        $
+        PV=$ <span class="tooltip">$\dfrac{C}{(1+r)^T}$<span class="tooltiptext">The discount rate $r$ should represent the risk involved with the investment</span></span>
+      </td>
+    </tr>
+    <tr>
+      <td>NPV</td>
+      <td>
+        $
+        NPV=\displaystyle\sum\limits_{t=0}^T\dfrac{C_t}{(1+r)^t}=C_0+\dfrac{C_1}{(1+r)}+\dfrac{C_2}{(1+r)^2}+\dots+\dfrac{C_T}{(1+r)^T}
+        $
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Relationship between real, nominal, and inflation rate
+      </td>
+      <td>$(1+i)=\dfrac{(1+r)}{(1+\pi)}$ <span class="tooltip">$\rArr$<span class="tooltiptext">Log approximation</span></span> $r\approx i+\pi$</td>
+    </tr>
+    <tr>
+      <td>
+        Annuity
+      </td>
+      <td>
+        $
+        PV=\left[\dfrac{1-\dfrac{1}{(1+r)^n}}{r}\right]
+        $
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Annuity with growth
+      </td>
+      <td>
+        $
+        PV=C\left[\dfrac{1-\left(\dfrac{1+g}{1+r}\right)^n}{r-g}\right]
+        $
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Perpetuity
+      </td>
+      <td>
+        $\dfrac{C}{r}$
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Perpetuity with growth
+      </td>
+      <td><span class="tooltip">$\dfrac{C}{r-g}$<span class="tooltiptext">Where $g$ is the annual growth rate of the cashflow $C$</span></span></td>
+    </tr>
+  </table>
+</details>
+  
+<details open><summary><h2>Asset Pricing</h2></summary>
+  <table>
+    <tr>
+      <td>
+        Pricing a bond
+      </td>
+      <td>
+        $
+        $<span class="tooltip">$PV_0$<span class="tooltiptext">Theoretical price of bond</span></span> $= $<span class="tooltip"> $F(c)$<span class="tooltiptext">
+          $F$ here is the face/par value of the bond (the value payed out at maturity). And $c$ is not the cash flow BUT RATHER the <b>coupon rate</b></span></span>$
+          $<span class="tooltip">$\left[\dfrac{1-\dfrac{1}{(1-y)^n}}{y}\right]$<span class="tooltiptext">$y$ here is the yield-to-maturity. This is constant theoretical discount rate that can be used to discount 
+            every cash flow the bond generates when <b>in reality, every period can have a different rate $r$ to discount. $y$ is usually calculated using Excel because there are multiple solutions</b></span></span>
+            $+$ <span class="tooltip">$\dfrac{F}{(1+y)^n}$<span class="tooltiptext">Where $F$ is the face/par value of the bond and we are discounting it for all periods because this is the cash flow you get 
+              at maturity</span></span>
+              <ul><li>
+                When $y=c$: $PV_0=F(c)\left[\dfrac{1-\dfrac{1}{(1+c)^n}}{c}\right]+\dfrac{F}{(1+c)^n}=$<span class="tooltip"> $F-\dfrac{F}{(1+c)^n}+\dfrac{F}{(1+c)^n}=F$<span class="tooltiptext">After timsing out, the $c$s cancel</span></span>
+              </li><li>
+                Important to note that if we don't have $y$, we use the spot rates $r$. These are implied from the length of the spot rates given
+      </li></ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Change in the price of bond with change in YTM
+    </td>
+    <td>
+      $\Delta P\approx\dfrac{-D_{\text{mac}}}{1+y}\times P_0\Delta y$
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span class="tooltip">Spot rate calculation<span class="tooltiptext">If there is an inequality here; each side represents which side to short and long. The larger side is shorted</span></span>
+    </td>
+    <td>
+      $(1$ $+$ <span class="tooltip">$r_t$<span class="tooltiptext">This is the spot rate. It is the interest rate today on a loan that is made today over a specified time period $t$ 
+        quoted as an annual rate</span></span>$)^t(1$ $+$ <span class="tooltip">${}_{t}f_T$<span class="tooltiptext">This is the forward rate from $t$ to $T$</span></span> $)^T=(1+r_{t+T})^{t+T}$
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span class="tooltip">
+        Macaulay duration<span class="tooltiptext">
+          The wighted average of the years in which a bond pays its cash flows.
+        </span>
+      </span>
+    </td>
+    <td>
+      <ul>
+        <li>
+          $D_{mac}=\displaystyle\sum_{t=1}^n(t)w_t$
+        </li>
+        <li>
+          The weights are defined by: $w_t$ $=$ <span class="tooltip">$\left[\dfrac{\dfrac{C_t}{(1+y)^t}}{\text{PV of bond}}\right]$<span class="tooltiptext">$C_t$ here represents the cash flow at time $t$. $y$ is YTM</span></span>
+        </li>
+        <li>
+          After supping in the bond price formula for pv: $D_{mac}=\displaystyle\sum_{t=1}^n(t)\left[\dfrac{\dfrac{C_t}{(1+y)^t}}{\displaystyle\sum_{t=1}^n\dfrac{C_t}{(1+y)^t}}\right]$
+        </li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span class="tooltip">Modified duration<span class="tooltiptext">Tells us how how much the value of a security changes with respect to YTM/interest rates.</span></span>
+    </td>
+    <td>
+      <li>
+        $D_{mod}=\dfrac{D_{mac}}{1+y}$
+      </li>
+      <li>
+        After subbing in the gradient of the price yield curve:<br />$\dfrac{-D_{mac}}{1+y}(P)=\dfrac{dP}{d(1+y)}=-D_{mod}(P)$
+      </li>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span class="tooltip">Change in bond price in terms of $D_{mod}$<span class="tooltiptext">This shows that bond prices are negatively related to interest rates. When $\Delta y>0$ this expression is negative.<br />
+        Intuition: if interest rates go up, then cash flows are discounted more heavily and the PV goes down.<br />This ca also be use to find the modified duration of a companies assets by using their debt. By finding the modified duration of their assets, the company can choose which best hedges against their liabilities. Note that it is an APPROXIMATION</span></span>
+    </td>
+    <td>
+      $\Delta P\approx$ <span class="tooltip">$-D_{mod}(P_0)$<span class="tooltiptext">This is the gradient of they yield curve at point $y_0$. Derived in lecture 4</span></span>$(\Delta y)$
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span class="tooltip">Pricing an asset with no dividend growth<span class="tooltiptext">An asset is just treated as the present value of a perpetual dividend stream, i.e. cash flows</span></span>
+    </td>
+    <td>
+      $P_0$ $=$ <span class="tooltip">$\dfrac{D}{E(r)}$<span class="tooltiptext">Where $D$ is the annual dividend and $E(r)$ is the expected return on each dividend as a proportion of the price of the bond: $E(r)=\dfrac{E_0(D_1)}{P_0}+
+        \dfrac{E_0(P_1-P_0)}{P_0}+\dots$<br /><li>$E(r)$ is also sometimes known as the "required rate of return"</li></span></span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Pricing an asset with dividend growth
+    </td>
+    <td>
+      $P_0=\dfrac{D}{E(r)-g}$
+    </td>
+  </tr>
+  <tr>
+    <td>Payout and plowback</td>
+    <td>
+      <ul>
+        <li>
+          $\text{payout}=\dfrac{D_t}{EPS_t}=1-\text{plowback ratio}$
+        </li>
+        <li>
+          <span class="tooltip">$\dfrac{\text{retained earnings}}{\text{total earnings}}=1-\text{payout}$<span class="tooltiptext">Tells us how much of current earnings is retained for investment</span></span>
+        </li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td><span class="tooltip">ROE<span class="tooltiptext">Tells us how much each unit of equity contributes to earnings</span></span></td>
+    <td><span class="tooltip">$ROE=\dfrac{EPS_t}{\text{Book value of equity per share}_{t-1}}$<span class="tooltiptext">Book value of equity per share last year is just $\text{Equity}/\text{Shares outstanding}$</span></span></td>
+  </tr>
+  <tr>
+    <td>Earnings growth</td>
+    <td>
+      <span class="tooltip">$g=ROE\times\text{ploywback}$<span class="tooltiptext">"How much does does what we incrementally put back into the firm contribute to earnings growth"</span></span>
+    </td>
+  </tr>
+  <tr>
+    <td>Earnings growth rate</td>
+    <td>
+      $\text{Earnings growth rate}=\text{Plowback}\times\text{ROE}=\text{Dividend growth rate}$
+    </td>
+  </tr>
+  <tr>
+    <td><span class="tooltip">Present value of growth opportunities<span class="tooltiptext">PVGO</span></span></td>
+    <td>
+      $P_0$ $=$ $\dfrac{EPS_1}{E(r)}$ $+$ $PVGO$<br />
+      $\rArr$ <span class="tooltip">$PVGO=P_0-\dfrac{EPS}{E(r)}$<span class="tooltiptext">PVGO is the price of the share 
+        that we calculated with the relevant plowback ratios etc minus the price of the share if there was a payout ratio of 0 
+        (EPS is acting as the dividend in the perpetuity).</span></span>
+      
+    </td>
+  </tr>
+  </table>
+</details>
+
+<details open><summary><h2>Market <span class="tooltip">risk<span class="tooltiptext"><p>Risk is the variance of the returns of an instrument</p></span></span></h2></summary>
+  <table>
+    <tr>
+      <td><span class="tooltip">Expected return<span class="tooltiptext">The expected return on an asset is the weighted average rate of return of all possible outcomes, where the weights are the probabilities ($p$)</span></span></td>
+      <td>$E(R)=p_1R_1+p_2R_2+\dots+p_NR_N$<br />$\rArr E(R)=\displaystyle\sum_{i=1}^{N}p_iR_i$<br />Sample mean return: $\overline{R}=$ <span class="tooltip">$\dfrac{1}{N}$<span class="tooltiptext">$N$ is the number of observations in the sample</span></span>$\displaystyle\sum_{i=1}^{N}R_i$</td>
+    </tr>
+    <tr>
+      <td>Variance of returns</td>
+      <td>
+        $\sigma^2=p_1\left[\R_1-E(R)\right]^2+p_2\left[\R_2-E(R)\right]^2+\dots+p_N\left[\R_N-E(R)\right]^2$<br />$\rArr$ <span class="tooltip">$\sigma_R^2$<span class="tooltiptext">Standard deviation: $\sigma_r=\sqrt{\sigma_R^2}$</span></span> $=\displaystyle\sum_{i=1}^Np_i[R_i-E(R)]^2$
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Sample variance and standard deviation
+      </td>
+      <td>
+        $
+          s(R)^2=\dfrac{1}{N-1}\displaystyle\sum_{i=1}^N\left(R_i-\overline{R}\right)^2
+        $
+      </td>
+    </tr>
+    <tr>
+      <td><span class="tooltip">Covariance<span class="tooltiptext">Calculates how two stocks' variances associate ($X$ and $Y$ in this case)</span></span></td>
+      <td><span class="tooltip">$\sigma_{X,Y}$<span class="tooltiptext">Represents the covariance of $X$ and $Y$</span></span> $=E[(X$ $-$ <span class="tooltip">$E(X)$<span class="tooltiptext">Represents the expected return on $X$</span></span>$)(Y-E(Y))]$</td>
+    </tr>
+    <tr>
+      <td>Sample covaviance</td>
+      <td>
+        $Cov(X,Y)=\dfrac{1}{N-1}\displaystyle\sum_{i=1}^N\left(X_i-\overline{X}\right)\left(Y_i-\overline{Y}\right)$
+      </td>
+    </tr>
+    <tr>
+      <td>Correlation</td>
+      <td><span class="tooltip">$\rho_{X, Y}$<span class="tooltiptext">$-1<\rho<1$</span></span> $=\dfrac{\sigma_{X,Y}}{\sigma_X\sigma_Y}$</td>
+    </tr>
+    <tr>
+      <td>Sample correlation</td>
+      <td>
+        $Corr(X,Y)=\dfrac{Cov(X,Y)}{s(X)s(Y)}$
+      </td>
+    </tr>
+    <tr>
+      <td>Expected return on a portfolio</td>
+      <td>
+        <span class="tooltip">$E(R_p)=w_1E(R_1)+w_2E(R_2)+\dots+w_NE(R_N)$<span class="tooltiptext">The return on a portfolio is equal to the expected return on all the stocks 
+          in the portfolio.
+        </span></span><br />
+          $E(R_p)=\displaystyle\sum_{i=1}^Nw_iE(R_i),\qquad$where $\displaystyle\sum_{i=1}^Nw_i=1$
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Variance of a portfolio with 2 assets
+      </td>
+      <td>
+        $\sigma_{R_p}^2=w_1^2\sigma_{R_1}^2+w_2^2\sigma_{R_2}^2+2w_1w_2Cov(R_1,R_2)=\sigma_{R_p}^2=w_1^2\sigma_{R_1}^2+w_2^2\sigma_{R_2}^2+2w_1w_2\sigma_1\sigma_2Corr(R_1,R_2)$
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Variance of portfolio with $N$ assets
+      </td>
+      <td>
+        $\sigma_{R_p}^2=\left(\displaystyle\sum_{n=1}^Nw_n^2\sigma_{R_n}^2\right)+\left(\underset{m\ne n}{\displaystyle\sum_{n=1}^N\displaystyle\sum_{m=1}^N}w_nw_mCov(R_n,R_m)\right)$<br />
+        <ul>
+          <li><span class="tooltip">Diversification at a glance<span class="tooltiptext">Allows us to see that variance decreases with the number of stocks but covariance increases</span></span>: $\sigma^2_{R_p}=\dfrac1N$<span class="tooltip">$\overline{\sigma^2}$<span class="tooltiptext">This is the average variance of the securities in the portfolio
+            defined by: $\overline{\sigma^2}=\dfrac1N\displaystyle\sum_{n=1}^N\sigma_{R_n}^2$
+          </span></span> $+$ <span class="tooltip">$\left(1-\dfrac1N\overline{Cov}\right)$<span class="tooltiptext">The average covariance defined by: $\overline{Cov}=\dfrac{1}{N(N-1)}\underset{m\ne n}{\displaystyle\sum_{n=1}^N\displaystyle\sum_{m=1}^N}Cov(R_n,R_m)$. There are $N(N-1)$ covariance terms in a portfolio of $N$ instruments</span></span></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Average variance and covariance</td>
+      <td><ol>
+        <li>
+          Average variance: $\overline{\sigma^2}=\dfrac1N\displaystyle\sum_{n=1}^N\sigma_{R_n}^2$
+        </li>
+        <li>
+          Average covariance: $\overline{Cov}=\dfrac{1}{N(N-1)}\underset{m\ne n}{\displaystyle\sum_{n=1}^N\displaystyle\sum_{m=1}^N}Cov(R_n,R_m)$
+        </li>
+      </ol></td>
+    </tr>
+    </tr>
+    <tr>
+      <td>
+        Beta
+      </td>
+      <td>
+        $\beta_i=$ <span class="tooltip">$\dfrac{Cov(R_i,R_p)}{\sigma^2_{R_p}}$<span class="tooltiptext">$R_i$ is the stock you're analysing and $R_p$ is your portfolio or the entire market $M$</span></span> $=\rho \dfrac{\sigma_R}{\sigma_M}$
+      </td>
+    </tr>
+  </table>
+</details>
+
+<details open><summary><h2>Portfolio theory</h2></summary>
+  <table>
+    <tr>
+      <td>Sharpe ratio</td>
+      <td>
+        $\text{Sharpe ratio}=$ <span class="tooltip">$\dfrac{E(r_A)-r_{r_f}}{\sigma_{r_A}}$<span class="tooltiptext">Where $E(r_A)$ is the expected return on a portfolio consisting of risky assets and a risk free asset. $r_{r_f} and $\sigma_{R_A}$ is the variance of the portfolio previously mentioned$</span></span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">CAPM<span class="tooltiptext">The expected return of an asset is the risk free rate plus the market risk premium times the asset's beta<br />
+          <ul><li>When a stock has a higher expected return than when calculated by CAPM, we consider that stock to be generating
+            abnormal returns, AKA, the stock is current underpriced, and vice versa. The distance between the abnormal returns and the CAPM line is known as $\alpha$
+          </li></ul>
+        </span></span>
+      </td>
+      <td>
+        $E(r_i)=r_{r_f}+\beta_i$<span class="tooltip">$[E(r_M)-r_{r_f}]$<span class="tooltiptext">This is knows as the market premium. It is the expected return on the market above the risk free rate. This is also the gradient of the secure market line in space ($E(R_M),\beta$)</span></span>
+      </td>
+    </tr>
+    <tr>
+      <td>Rearranged CAPM with alpha residual</td>
+      <td>
+        $E(r_i)-r_{r_f}=\alpha+\beta_i[E(R_m)-r_{r_f}]$
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Expected return using the share ratio (<span class="tooltip">CML<span class="tooltiptext">Capital market line</span></span>)
+      </td>
+      <td>
+        $E(r_i)=$ <span class="tooltip">$r_{r_f}+\text{Sharpe}\times\sigma$<span class="tooltiptext">Here the risk free rate functions as the $y$-intercept and the $\sigma$ as our dependent variable</span></span>
+      </td>
+    </tr>
+  </table>
+</details>
+
+<details open><summary><h2>Forwards and futures</h2></summary>
+  <table>
+    <tr>
+      <td>Price of a forward contract</td>
+      <td>
+        <ul><li>
+          With no dividends: <span class="tooltip">$F_{0,T}$<span class="tooltiptext">This is the price of the forward contract</span></span>
+          $=$ <span class="tooltip">$S_0$<span class="tooltiptext">Price of the underlying assets at $t=0$</span></span>$\left(1+r_{r_f}\right)^T $
+        </li><li>
+          With fixed income/dividends: $F_{0,T}=(S_0-$ <span class="tooltip">$I$<span class="tooltiptext">The present value of all the income received until the maturity date</span></span>$)\left(1+r_{r_f}\right)^T$
+          <ul><li>With KNOWN fixed income/yield: $F_{0,T}=S_0(1+r_{r_f}$ $-$ <span class="tooltip">$y$<span class="tooltiptext">Where $y$ is the yield on investment</span></span>$)$ <span class="tooltip">$^t$<span class="tooltiptext">Where $t$ is the length of the forward contract in the same units as the interest rates</span></span> </li></ul>
+        </li><li>
+          Commodity with fixed storage costs: $F_{0,T}=(S_0+U)(1+r_{r_f})^T$
+        </li><li>
+          <span class="tooltip">With net convenience yield<span class="tooltiptext">A net convenience yield is the value fo having an inventory minus storage costs of the inventory ($NCY=y-s$), where $y$ is the convenience yield and $s$ is the storage cost as a rate.</span></span>: 
+          $F_{0,T}=S_0(1+r_{r_f}-NCY)^T$
+        </li><li>
+          Currency forward: <span class="tooltip">$F_{0,T_{\frac{HC}{FC}}}$<span class="tooltiptext">The forward exchange rate at time $t=0$ expressed in home currency per unit of foreign currency for exchange of currencies at future point in time $T$</span></span> 
+          $=$ <span class="tooltip">$S_{0_{\frac{HC}{FC}}}$<span class="tooltiptext">Spot exchange rate at time $t=0$ expressed in <b>home currency per unit of foreign currency for exchange of currencies at time 0</b></span></span>$\left[\dfrac{1+r_{home}}{1+r_{foreign}}\right]^T$
+        </li></ul>
+      </td>
+    </tr>
+  </table>
+</details>
+
+<details open><summary><h2>Put and call options</h2></summary>
+  <table>
+    <tr>
+      <td>
+        Put-call parity without dividends
+      </td>
+      <td>
+        <span class="tooltip">$C_0$<span class="tooltiptext">Price of the contract</span></span> $+$ <span class="tooltip">$\dfrac{K}{(1+r_{r_f})^T}$<span class="tooltiptext">This is the present value of the strike price $K$. This is the price at which you're allowed to buy a call stock or sell a put stock</span></span> $=$ $S_0$ $+$ <span class="tooltip">$P_0$<span class="tooltiptext">Put option premium (the contract)</span></span>
+      </td>
+    </tr>
+    <tr>
+      <td>Put-call parity with dividends</td>
+      <td>
+        $
+          S_0+P_0=C_0+PV(K)+PV(\text{DIVS})
+        $
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Replicating portfolio call pricing:
+      </td>
+      <td>
+        <ul>
+          <li>
+            <span class="tooltip">Delta<span class="tooltiptext">This is basically the gradient of the asset replication line.</span></span>: $\Delta=$ <span class="tooltip">$\dfrac{C_u-C_d}{S_0(u-d)}$<span class="tooltiptext">Where $C_u$ is the value of the call in the up branch and $C_d$ is the value of the call in the down branch. 
+              $S_0$ is the price of the underlying assets at $t=0$ and $u,\ d$ are % the underlying assets changes for each branch</span></span>
+          </li>
+          <li>
+            <span class="tooltip">Beta<span class="tooltiptext">This is the amount you need to borrow at the risk free rate to replicate this portfolio</span></span>: $\Beta=\dfrac{C_d(u)-C_u(d)}{u-d}$
+          </li>
+          <li>
+            Replicating portfolio: $C=S_0(\Delta)+\dfrac{\Beta}{1+r_{r_f}}$
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Replicating portfolio put pricing
+      </td>
+      <td>
+        <span class="tooltip">$P=S_0(\Delta)+\dfrac{\Beta}{1+r_{r_f}}$<span class="tooltiptext">Here we are SHORTING the stock and BORROWING the $\Beta$</span></span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Risk-neutral pricing method
+      </td>
+      <td>
+        $C=$ <span class="tooltip">$\dfrac{qC_u+(1-q)C_d}{1+r_{r_f}}$<span class="tooltiptext">Where $q$ is the risk neutral probability of a move up and $1-q$ the risk neutral of a move down</span></span>$,\qquad$ where $q$ is:<br />
+        $\quad q=$ <span class="tooltip">$\dfrac{1+r_{r_f}-d}{u-d}$<span class="tooltiptext">Where $d$ is the actual coefficient you would times the share price by to get the share price in the down state and $u$ is the opposite.</span></span>
+      </td>
+    </tr>
+  </table>
+</details>
+
+<details open><summary><h2>Project NPV</h2></summary>
+  <table>
+    <tr>
+      <td>
+        Book rate of return
+      </td>
+      <td>
+        $\text{Bok rate of return}=\dfrac{\text{Book income}}{\text{Book assets}}$
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">IRR<span class="tooltiptext">Accept if the expected return on investment is higher than the opportunity cost of capital (hurdle rate)</span></span>
+      </td>
+      <td>
+        <span class="tooltip">$NPV=0$<span class="tooltiptext">Essentially here we set $NPV = 0$ and then solve which $r$ which, in turn, gives us the $IRR$</span></span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Incremental cash flow method with two mutually exclusive projects
+      </td>
+      <td>
+        <ul>
+          <li>
+            Take the difference in cash flows of the two proects
+          </li>
+          <li>
+            Calculate the IRR of the incremental CFs
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Free cash flows
+      </td>
+      <td>
+        $\text{FCF}=$ <span class="tooltip">$\text{EBITDA}(1-\tau_c)$<span class="tooltiptext">This is earnings before interest, tax, and dep and amo</span></span> 
+          $+$ <span class="tooltip">$\text{Depreciation}\times\tau_c$<span class="tooltiptext">This is the tax benefit provided by depreciation, and is called the depreciation tax shield</span></span> $-$
+          <span class="tooltip">$\Delta NWC$<span class="tooltiptext">Current assets - current liabilities. A growth in NWC means a net investment in current assets, thus tying up more cash</span></span> $-$ $\text{CAPEX}+\text{Salvage}$
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Inflation
+      </td>
+      <td>
+        <span class="tooltip">$1+r=\dfrac{1+i}{1+\pi}$<span class="tooltiptext">We use nominal interest rates to discount nominal cash flows and real rates to discount real cash flows</span></span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Profitability index<span class="tooltiptext">We choose the combination of projects with the highest weighted average PI</span></span>
+      </td>
+      <td>
+        $\text{Profitability index}=\dfrac{\text{NPV}}{\text{Investment}}$
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Equivalent annual cash flow
+      </td>
+      <td>
+        $\text{EAC}=$ <span class="tooltip">$\dfrac{\text{PV(cash flows)}}{\text{Annuity factor}}$<span class="tooltiptext">Where the annuity factor is $\dfrac{1-(1+r)^{-n}}{r}$</span></span>
+      </td>
+    </tr>
+  </table>
+</details>
+
+<details open><summary><h2>Real options</h2></summary>
+  <table>
+    <tr>
+      <td>
+        Method
+      </td>
+      <td>
+        <ol>
+          <li>
+            Build a tree representing all the available paths.
+          </li>
+          <li>
+            We then use expected values of each period and use NPV to discount back to today
+          </li>
+          <li>
+            Remember to include things like the salvage value, and to compare the value with an option to value without if necessary.
+          </li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+</details>
+
+<details open><summary><h2>Payout and debt policy</h2></summary>
+  <table>
+    <tr>
+      <td>
+        Cum dividend-ex dividend equality
+      </td>
+      <td>
+        $P_{cum}-P_{ex}=d \ \times$ <span class="tooltip">$\left(\dfrac{1-\tau_d}{1-\tau_{cg}}\right)$<span class="tooltiptext">Where $\tau_cg$ is the tax on capital gains and $\tau_d$ is the tax on dividends. I.e., the price of the share before the dividend less after dividend should equal 
+          the dividend times the ratio of 1 - taxes
+        </span></span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Leverage ratio
+      </td>
+      <td>
+        $\text{Leverage ratio}=\dfrac{\text{Debt}}{\underset{\textbf{(Debt + Equity)}}{\text{Assets}}}$
+      </td>
+    </tr>
+    <tr>
+      <td>MM proposition 1</td>
+      <td><ul><li>
+        If capital markets are doing their job, firms cannot increase value by changing their capital structure
+      </li>
+      <li>
+        Firm value is independent of the debt ratio
+      </li>
+      <li>
+        Capital structure is irrelevant, even if that debt is risky
+      </li>
+      <li>
+        <span class="tooltip">$A$<span class="tooltiptext">The market value of a firm's assets</span></span>
+        $=$ <span class="tooltip">$V_u$<span class="tooltiptext">The value of the firm if unlevered. $V_U=\dfrac{E(\text{future cash flows})}{(1+r_a)}$</span></span> 
+        $=$ <span class="tooltip">$V_L$<span class="tooltiptext">Value of the firm if levered</span></span> 
+        $=$ <span class="tooltip">$D+E_L$<span class="tooltiptext">The market value of the firm's debt and equity if it is levered</span></span>
+      </li>
+      </ul>
+    With this last point, if firms are identical and you invest the same proportion in any column of the equation, it should yield the same return
+    </td>
+    </tr>
+    <tr>
+      <td>MM proposition 2 (the basis of WACC)</td>
+      <td>
+        A firm's $r_E$ increases in proportion to the DE ratio. An increase in expected return is exactly offset by an increase in risk.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">WACC<span class="tooltiptext">Weighted average cost of capital</span></span>
+      </td>
+      <td>
+        $WACC=r_U=\left(\dfrac{D}{V}\right)r_D+\left(\dfrac{E}{V}\right)r_E\qquad$ or we can rearrange to get <span class="tooltip">$\qquad r_E=r_u+\dfrac{D}{E}(r_U-r_D)$<span class="tooltiptext">The expected return on equity of a levered firm is the expected return on the unlevered firm plus the difference of the expected return on unlevered and debt, multiplied by the
+          debt to equity ratio. The expected rate of return on the common stock of a levered firm increases in proportion to the debt-equity ratio but the increase in return is offset by the increase in risk</span></span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        MM 2 in CAPM Betas
+      </td>
+      <td>
+        $\beta_E=\beta_U+\left(\dfrac{D}{E}\right)(\beta_U-\beta_D)$
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Interest tax shield
+      </td>
+      <td>
+        $\text{Interest tax shield}$ $=$ <span class="tooltip">$(D\times r_d)\times\tau_c$<span class="tooltiptext">Interest payed times the tax rate gets us the amount of tax we didnt pay due to the deduction of interest due to debt investors. This is only used when there are not bankruptcy costs</span></span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        After-tax WACC
+      </td>
+      <td>
+        $WACC_{AT}=r_D(1-\tau_c)\left(\dfrac DV\right)+r_E\left(\dfrac{E}{V}\right)$
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Adjusted present value
+      </td>
+      <td>
+        $APV=\text{base case NPV}+\sum\text{PV of financing side effects}$
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Present value of interest tax shield
+      </td>
+      <td>
+        $PV(ITS)=\dfrac{D\times r_D\times\tau_c}{r_D}=D\times\tau_c$
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Relative advantage of debt
+      </td>
+      <td>
+        <span class="tooltip">$RAD=\dfrac{1-\tau_p}{(1-\tau_{pE})(1-\tau_c)}$<span class="tooltiptext">If this is greater than 1, the we issue debt because the after tax income to debtors is higher than investors. $\tau_p$ here is the tax applicable to a person who receives an interest payment and $\tau_{pE}$ is the personal tax used for dividends.</span></span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Trade-off theory<span class="tooltiptext">The optimal leverage a firm should have</span></span>
+      </td>
+      <td>
+        <ul><li>
+          APV formula: <span class="tooltip">$V_L$<span class="tooltiptext">Levered value of the project</span></span> $=$ $V_U+PV(\text{tax shields})-PV(\text{cost of financial distress})$
+        </li><li>
+          Present value of the costs of financial distress: $PV(CFD)=\displaystyle\sum_{t=1}^\infty\dfrac{p(1-p)^{t-1}CFD}{(1+r_D)^t}=$ <span class="tooltip">$\dfrac{pCFD}{r_D+p}$<span class="tooltiptext">Where $p$ is the probability of bankruptcy, $CFD$ is the cost of bankruptcy, $r_D$ is the bond's expected return<p><img src="fm212-formulae.html.assets/2021-05-03-22-58-41.png" alt="" /></p></span></span>
+        </li></ul>
+      </td>
+    </tr>
+  </table>
+</details>
+
+<details open><summary><h2>Bond terminology</h2></summary>
+  <table>
+    <tr>
+      <td>
+        Debentures
+      </td>
+      <td>
+        Long-term bonds > 10 years
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Commercial paper and notes
+      </td>
+      <td>
+        Short-term < 10 year
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Accrued interest
+      </td>
+      <td>
+        Amount of accumulated interest since the last coupon payment
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Dirty price<span class="tooltiptext">Any bond can be either secured or unsecured. A secured bond means that the lender can seize collateral upon default</span></span>
+      </td>
+      <td>
+        <span class="tooltip">The actual price you pay to purchase a bond<span class="tooltiptext">This is computed using the PV of future cash flows</span></span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Clean price
+      </td>
+      <td>
+        quoted (clean) price =  dirty price - accrued interest
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Foreign bond
+      </td>
+      <td>
+        Local-currency denominated bond that is issued/sold by a foreign company to investors int he local market
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Eurobond
+      </td>
+      <td>
+        Bond that is underwritten by international bond syndicates and sold in several nation markets in a major non-local currency
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Credit spread
+      </td>
+      <td>
+        $r_{\text{corporate debts}}-r_f$
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Sinking fund
+      </td>
+      <td>
+        An fund established to retire debt gradually before maturity into which the firm must make regular payments
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Pay in kind (PIK)
+      </td>
+      <td>
+        Payments of the bond don't have to be in cash. Interest or sinking funds can be paid by bonds. PIK is a cheaper way to pay than cash.
+      </td>
+    </tr>
+    <tr>
+      <td>Covenants</td>
+      <td>
+        <ul>
+          <li>
+            Positive covenant: specify action that the firm must take like requiring EBIT to be above a minimum
+          </li>
+          <li>
+            Negative covenants: limits of forbids actions that the firm might usually take like Taking more senior debt on than current debt, dividend restrictions
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Callable bond</td>
+      <td>
+        <ul>
+          <li>
+            Call provisions: gives the issuer the option to redeem or retire the debt early
+          </li>
+          <li>
+            <span class="tooltip">Callable bond<span class="tooltiptext">This allows firms to adjust capital structure (by lowering leverage) and take advantage of lower interest rates</span></span>: a bond that can be repurchased (called) by the firm before maturity at a specified price (call price)
+          </li>
+          <li>
+            Valuation:$P_t^{\text{callable}}=P_t^{\text{straight}}$ $-$ <span class="tooltip">$c_t$<span class="tooltiptext">The call option value<br /><img src="fm212-formulae.html.assets/2021-05-04-14-43-48.png" alt=""/></span></span>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Puttable bond<span class="tooltiptext">A bond that gives investors the right to demand early repayment. Bondholders have straight bond + (long) put option</span></span>
+      </td>
+      <td>
+        <ul>
+          <li>
+            Bond investors exercise the put option when the bond price is low. This happens when the firm is in trouble forcing the firm into default
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Convertible bond<span class="tooltiptext">Converting a bond creates new shares, thus the number of shares outstanding increases and existing shareholders are diluted.
+          Convertibles are issued because: <ul><li>
+            It reduces debtholder-shareholder agency conflicts like the risk shifting problem  
+          </li><li>
+            <img src="fm212-formulae.html.assets/2021-05-04-15-10-46.png" alt="" />
+          </li></ul>
+        </span></span>
+      </td>
+      <td>
+        <ul>
+          <li>
+            Convertible bond: gives bondholders the right to exchange the bond for a pre-specified number of shares<br />
+            $\text{Convertible bond}=\text{Straight bond}+\text{Equity call option}$
+          </li>
+          <li>
+            Conversion ratio: The number of share into which each bond can be converted
+          </li>
+          <li>
+            Conversion price: value of the bond divided by the number of shares into which it may be exchanged. The conversion price will be quoted in terms of the market
+            value of thee bond (market conversion price)
+          </li>
+          <li>
+            Conversion value: value if converted
+          </li>
+          <li>
+            Valuation: $P_t^{\text{convertible}}=P_t^{\text{straight}}$ $+$ <span class="tooltip">$c_t$<span class="tooltiptext">Added because the underlying assets are shares. THis is the value of the call option to aquire common stock</span></span>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Warrants
+      </td>
+      <td>
+        Call options written by the company on new stock. Iti is similar to a package of a straight bond and a warrant. Warrants increase the number of shares outstanding if exercised and can be issued on their own
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Time premium of a convertible
+      </td>
+      <td>
+        $P^{\text{mkt}}_\text{convetible}-\max(V_\text{conversion}, V_\text{straight})$
+      </td>
+    </tr>
+    <tr>
+      <td>Conversion value</td>
+      <td>
+        $\text{Conversion value}= \text{Conversion ratio}\times\text{Common stock price}$
+      </td>
+    </tr>
+    <tr>
+      <td>Conversion price</td>
+      <td>
+        $\text{Conversion price}=\dfrac{\text{Face value}}{\text{Conversion ratio}}$
+      </td>
+    </tr>
+  </table>
+</details>
+
+<details open><summary><h2>IPOs and M&A</h2></summary>
+  <h3>IPO</h3>
+  <table>
+    <tr>
+      <td>
+        VC contribution ratios
+      </td>
+      <td>
+        VC ownership % after contribution: <span class="tooltip">$\dfrac{X}{V}$<span class="tooltiptext">Where $X$ is the amount of capital that the VC contributed and $V$ is the market value of equity post contribution</span></span><br />
+        Original investor % after VC contribution: $\left(1-\dfrac{X}{V}\right)\times s$
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="tooltip">Calculating the number of shares needed for an IP and the post-IPO stock price<span class="tooltiptext">We have to solve these simultaneously</span></span>
+      </td>
+      <td>
+        <span class="tooltip">$$P_{new}\times N=\text{equity amount}+\text{underwriter fee}\tag{1}$$<span class="tooltiptext">Where $N$ is the number of share that need to be issued and the equity amount is the amount of equity the company wishes to raise</span></span>
+        $$P_{new}\times(\text{total \# of shares after issue})=\text{total $V_{firm} after issuance$}\tag{2}$$
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Value of share right
+      </td>
+      <td>
+        $\text{Value of right}=(P_{current}-P_{issue}) \times$ <span class="tooltip">$\dfrac{N}{N+1}$<span class="tooltiptext">Where $N$ is the number of shares per right</span></span>
+      </td>
+    </tr>
+  </table>
+
+  <h3>M&A</h3>
+  <table>
+    <tr>
+      <td>
+        Gain from merger
+      </td>
+      <td><span class="tooltip">$\text{Gain}=V_{\text{combined}}-(V_A+V_B)$<span class="tooltiptext">The gain from a merger is the value of the combined firm less the individual firm values</span></span></td>
+    </tr>
+    <tr>
+      <td>
+        Cost of cash-financed merger
+      </td>
+      <td>
+        $\text{Cost}=\text{Cash paid}-V_{\text{target}}$
+      </td>
+    </tr>
+    <tr>
+      <td>
+        NPV of acquisition
+      </td>
+      <td>
+        $NPV=\text{Gain}-\text{Cost}$
+      </td>
+    </tr>
+    <tr>
+      <td>Cost of merger with stock swap</td>
+      <td>$\text{Cost}=(N\times P_{\text{combined}}-V_{\text{target}})$</td>
+    </tr>
+    <tr>
+      <td>
+        Proportional ownership identity
+      </td>
+      <td>
+        <span class="tooltip">$\dfrac{N_{issued}}{N_{original}}=\dfrac{V_{Consideration}}{V_{aquirer}+V_{synergies}}$<span class="tooltiptext">The number of shares issued for takeover/number of original shares is in proportion with the values</span></span>
+      </td>
+    </tr>
+  </table>
+</details>
+
+<details open><summary><h2>Hedging</h2></summary>
+  <table>
+    <tr>
+      <td>Futures prices and expected spot prices</td>
+      <td>
+        <span class="tooltip">$\text{futures price}=E(\text{spot price})\times\dfrac{1+r_f}{1+r_c}$<span class="tooltiptext">The futures price is the expected spot price (expected current price) times the ratio between the risk-free rate ($r_f$) and the commodity expected return ($r_c$)</span></span>
+      </td>
+    </tr>
+  </table>
+</details>
+
+<details open><summary><h2>Other useful info</h2></summary>
+  <table>
+    <tr>
+      <td>
+        Different forms of market efficiency
+      </td>
+      <td>
+        <ul>
+          <li><b>Weak form</b>: investors cannot predict abnormal returns given observed history of past stock prices, trading volume and other trading data.</li>
+          <li><b>Semi-strong form</b>: investors cannot predict abnormal returns given publicly avail- able information (management quality, balance sheet composition, accounting performance, corporate news etc)</li>
+          <li><b>Strong form</b>: investors cannot predict abnormal returns using publicly and privately available information.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Arbitrage strategy for options mispricing
+      </td>
+      <td>
+        <ul><li>
+          If the put side of the parity is more expensive than the call:
+          <img src="fm212-formulae.html.assets/2021-05-17-15-27-17.png" alt="" width="400px">
+        </li><li>
+          If the opposite is true:
+          <img src="fm212-formulae.html.assets/2021-05-17-15-29-35.png" alt="" width="400px">
+        </li></ul>
+      </td>
+    </tr>
+  </table>
+</details>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        // customised options
+        // • auto-render specific keys, e.g.:
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        // • rendering keys, e.g.:
+        throwOnError : false
+    });
+  });
+</script>
+</html>
