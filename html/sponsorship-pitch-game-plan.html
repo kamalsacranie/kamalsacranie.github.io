@@ -1,0 +1,500 @@
+<!DOCTYPE html><html><head>
+      <title>sponsorship-pitch-game-plan</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/kamalsacranie/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.21/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      @import url(https://cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css);
+/**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+
+:root {
+  --primary-color: #2875d9;
+}
+.markdown-preview.markdown-preview * {
+  box-sizing: border-box;
+  color: black;
+  max-width: 900px;
+  font-family: "Computer Modern Sans", sans-serif;
+}
+.markdown-preview.markdown-preview a {
+  color: var(--primary-color);
+}
+.markdown-preview.markdown-preview img {
+  max-width: 480px;
+  max-height: 600px;
+  display: block;
+  margin: auto;
+  padding: 10px 0;
+}
+.markdown-preview.markdown-preview .tooltip {
+  position: relative;
+  color: #990099;
+}
+.markdown-preview.markdown-preview .tooltip .base * {
+  color: #990099;
+}
+.markdown-preview.markdown-preview .tooltiptext {
+  position: absolute;
+  /* basic styles */
+  min-width: 7cm;
+  padding: 10px;
+  border-radius: 10px;
+  background: #f477f4;
+  color: #000;
+  text-align: left;
+  display: none;
+}
+.markdown-preview.markdown-preview .tooltiptext .base * {
+  color: black;
+}
+.markdown-preview.markdown-preview .tooltip:hover .tooltiptext {
+  display: block;
+  z-index: 1;
+}
+.markdown-preview.markdown-preview .tooltip:hover {
+  background-color: yellow;
+  border-radius: 5px;
+}
+.markdown-preview.markdown-preview html {
+  font-size: 12px;
+}
+.markdown-preview.markdown-preview h1 {
+  font-size: 1.5rem;
+}
+.markdown-preview.markdown-preview h2 {
+  font-size: 1.3rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.markdown-preview.markdown-preview h3 {
+  font-size: 1.1rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.markdown-preview.markdown-preview h4 {
+  font-size: 1rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.markdown-preview.markdown-preview h5 {
+  font-size: 0.9rem;
+}
+.markdown-preview.markdown-preview h6 {
+  font-size: 0.8rem;
+}
+.markdown-preview.markdown-preview li {
+  margin: 0.4rem 0;
+}
+.markdown-preview.markdown-preview blockquote {
+  margin: 5px;
+  padding: 5px;
+}
+.markdown-preview.markdown-preview blockquote p {
+  font-style: italic;
+  color: #6f6f6f;
+}
+.markdown-preview.markdown-preview table,
+.markdown-preview.markdown-preview li,
+.markdown-preview.markdown-preview p {
+  font-size: 12px;
+  line-height: 0.9rem;
+  text-align: left;
+}
+.markdown-preview.markdown-preview tr > td:first-child {
+  width: 200px;
+}
+.markdown-preview.markdown-preview tr > td:last-child li {
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+.markdown-preview.markdown-preview tr > td:last-child li .tooltiptext {
+  padding-left: 10px;
+  text-indent: 0;
+}
+.markdown-preview.markdown-preview th,
+.markdown-preview.markdown-preview table {
+  font-weight: normal;
+  overflow: visible;
+}
+.markdown-preview.markdown-preview .katex {
+  font-size: 1em;
+}
+.markdown-preview.markdown-preview .katex .base {
+  padding-bottom: 0.3em;
+}
+.markdown-preview.markdown-preview .katex .mord {
+  font-family: "Computer Modern Serif", serif;
+}
+@media print {
+  .markdown-preview.markdown-preview .tooltip {
+    background-color: yellow;
+  }
+  .markdown-preview.markdown-preview h2 {
+    page-break-before: avoid;
+  }
+  .markdown-preview.markdown-preview h1,
+  .markdown-preview.markdown-preview h2,
+  .markdown-preview.markdown-preview h3,
+  .markdown-preview.markdown-preview h4,
+  .markdown-preview.markdown-preview h5,
+  .markdown-preview.markdown-preview h6 {
+    page-break-after: avoid;
+  }
+  @page {
+    size: A4;
+    margin: 2cm;
+  }
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="sponsorship-pitch-book-todo">Sponsorship Pitch Book Todo</h1>
+
+<h2 class="mume-header" id="regarding-all-tasks">Regarding all tasks</h2>
+
+<ul>
+<li>Remember that when it comes to money everything is competitive and whatever your task you must try your utmost to be innovative!</li>
+<li><strong>We really need to stand out amongst the crowd</strong></li>
+</ul>
+<h3 class="mume-header" id="1-letter-from-the-president">1. Letter from the president</h3>
+
+<ul>
+<li>President to do cover letter explaining what the society is etc.</li>
+<li>Also a detailed page on what their vision for the soc is as they&apos;re president will know best which direction they want to take the society</li>
+</ul>
+<h3 class="mume-header" id="2-events-summary-for-the-year-yunduo">2. Events summary for the year (Yunduo)</h3>
+
+<ul>
+<li>Yunduo needs to summarise the events we plan on having this year</li>
+<li><strong>Naturally this is an area we can all get involved in and would do well if everyone could contribute to possible events we can do in the year to come.</strong></li>
+<li>Then Yundua needs to provide a detailed roadmap</li>
+<li><strong>NB</strong>: mention events done in the past. reach out to previous events director if need be</li>
+</ul>
+<h3 class="mume-header" id="3-explaining-the-structure-of-the-club-alisia">3. Explaining the structure of the club (Alisia)</h3>
+
+<ul>
+<li>Need Ailisa to explain the structure of the club in great detail and the diversity breakdown etc</li>
+<li>Talk in depth about our deep link with the faculty as that gives us a massive advantage over other clubs as we have the WHOLE of A&amp;F undergrad and postgrad on our mailing list.</li>
+</ul>
+<h3 class="mume-header" id="4-marketing-ideas-umesh">4. Marketing ideas (Umesh)</h3>
+
+<ul>
+<li>Naturally this falls to Umesh</li>
+<li>Umesh I trust you can think of some sick marketing ideas etc.</li>
+</ul>
+<h3 class="mume-header" id="5-outreach-plans-wei">5. Outreach plans (Wei)</h3>
+
+<ul>
+<li>Need the vice president to give detailed breakdown on services offered by us to our members
+<ul>
+<li>Talk about drop in sessions we hold</li>
+<li>Mentorship programme</li>
+<li>Kamal will add about the SAM scheme</li>
+</ul>
+</li>
+<li>This also needs to be accompanied with plans to give back to the community</li>
+</ul>
+<h3 class="mume-header" id="6-formatting-and-sponsor-related-stuff-kamal">6. Formatting and sponsor related stuff (Kamal)</h3>
+
+<ul>
+<li>Kamal to do all formatting</li>
+<li>Lengthy section on the justification on why to sponsor us</li>
+<li>Decide on the sponsorship packages</li>
+</ul>
+<blockquote>
+<p><strong>For all of the above, there is no need to worry about formatting as Kamal will be doing the formatting after all the raw work is done.</strong></p>
+</blockquote>
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#sponsorship-pitch-book-todo">Sponsorship Pitch Book Todo</a>
+<ul>
+<li><a href="#regarding-all-tasks">Regarding all tasks</a>
+<ul>
+<li><a href="#1-letter-from-the-president">1. Letter from the president</a></li>
+<li><a href="#2-events-summary-for-the-year-yunduo">2. Events summary for the year (Yunduo)</a></li>
+<li><a href="#3-explaining-the-structure-of-the-club-alisia">3. Explaining the structure of the club (Alisia)</a></li>
+<li><a href="#4-marketing-ideas-umesh">4. Marketing ideas (Umesh)</a></li>
+<li><a href="#5-outreach-plans-wei">5. Outreach plans (Wei)</a></li>
+<li><a href="#6-formatting-and-sponsor-related-stuff-kamal">6. Formatting and sponsor related stuff (Kamal)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>
