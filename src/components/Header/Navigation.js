@@ -1,21 +1,53 @@
-import React from "react";
-import BurgerMenu from "./BurgerMenu";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { IoMdBeer } from "react-icons/io";
+import { CgMenuRight } from "react-icons/cg";
+import NavItems from "./NavItems";
 import routes from "../../data/navRoutes";
 
-const Header = () => {
+const Navigation = () => {
+  const [showNav, setShowNav] = useState(false);
+
   return (
-    <React.Fragment>
-      {routes
-        .filter((main) => main.title)
-        .map((title) => {
-          return (
-            <h2 key={title.text} to={title.path}>
-              {title.text}
-            </h2>
-          );
-        })}
-    </React.Fragment>
+    // Defining our menu as flex and take up whole screen
+    <div>
+      {/* Defining font colours to apply to the whole nav div */}
+      <div
+        className={`fixed static top-0 left-0 min-h-screen font-medium px-3 bg-blue-800 text-blue-100 px-2 py-7 w-screen md:w-80 space-y-6 ${
+          !showNav ? "transform -translate-x-full" : 'transform -translate-x-0'
+        } transition duration-500`}
+      >
+        {/* mapping our title from route */}
+        {routes
+          .filter((main) => main.title)
+          .map((title) => {
+            return (
+              <Link
+                key={title.text}
+                to={title.path}
+                className="flex items-center space-x-5 pl-5"
+              >
+                <IoMdBeer className="h-12 w-12 text-yellow-300" />
+                <span className="text-2xl font-extrabold">{title.text}</span>
+              </Link>
+            );
+          })}
+        <NavItems />
+        {/* We must wrap our setMenu in an arrow function because 
+        if not it will execute straight away and cause a render loop */}
+      </div>
+      <button
+        className="fixed static top-0 right-0"
+        onClick={() => setShowNav(!showNav)}
+      >
+        <CgMenuRight
+          className={`bg-gradient-to-t hover:from-pink-500 hover:to-blue-500 ${showNav && 'from-pink-500 to-yellow-500'} p-3 h-16 w-16 ${
+            showNav ? "text-white" : "text-black"
+          } fill-current`}
+        />
+      </button>
+    </div>
   );
 };
 
-export default Header;
+export default Navigation;
