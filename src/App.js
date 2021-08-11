@@ -1,10 +1,12 @@
-import { Alert } from 'react-bootstrap'
-import './App.css';
+import { BrowserRouter as Router } from "react-router-dom";
+import "./css/main.css";
+import Navigation from "./components/Header/Navigation";
 
 function App() {
   return (
-    <div>
-    </div>
+    <Router>
+      <Navigation />
+    </Router>
   );
 }
 
