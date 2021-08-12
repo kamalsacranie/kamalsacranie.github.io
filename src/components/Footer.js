@@ -7,7 +7,7 @@ import ExternalLink from "./utilities/ExternalLink";
 const Footer = () => {
   let today = new Date();
   return (
-    <footer className="shadow-inner bottom-0 pb-8">
+    <footer className="bg-blue-100 bottom-0 pb-8 rounded-t-3xl">
       <div className="grid grid-rows-2 text-center">
         <div className='m-8'>Copyright &copy; Kamal Sacranie {String(today.getFullYear())}</div>
         <div className="grid grid-cols-3 py-3">

@@ -6,7 +6,7 @@ import ProfilePic from '../assets/images/profile-pic.png'
 
 const HomeScreen = () => {
   return (
-    <React.Fragment>
+    <div className='bg-yellow-100 rounded-b-3xl'>
       <SplashPage />
       {/* Here we our custom defined Tailwind class, card. The way we define
       these classes is via the index.css. See that file to understand how we define */}
@@ -34,7 +34,7 @@ const HomeScreen = () => {
           contact me.
         </Link>
       </h2>
-    </React.Fragment>
+    </div>
   );
 };
 

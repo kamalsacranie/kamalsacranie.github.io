@@ -19,7 +19,7 @@ const Navigation = () => {
     <div>
       {/* Defining font colours to apply to the whole nav div */}
       <div
-        className={`fixed static top-0 left-0 min-h-screen font-medium px-3 gradient text-blue-100 px-2 py-7 w-screen md:w-80 md:rounded-r-3xl space-y-6 ${
+        className={`fixed static top-0 left-0 min-h-screen font-medium px-3 bg-black text-blue-100 px-2 py-7 w-screen md:w-80 md:rounded-r-3xl space-y-6 ${
           !showNav ? "transform -translate-x-full" : "transform -translate-x-0"
         } transition duration-500`}
       >
