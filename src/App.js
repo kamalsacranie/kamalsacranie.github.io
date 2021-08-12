@@ -1,13 +1,19 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./index.css";
-import Navigation from "./components/Header/Navigation";
+import Navigation from "./components/header/Navigation";
+import Footer from './components/Footer'
 import HomeScreen from './screens/HomeScreen'
+import AboutScreen from "./screens/AboutScreen";
 
 function App() {
   return (
     <Router>
-      <Route path='/' component={HomeScreen}/>
+      <Route exact path='/' component={HomeScreen}/>
+      <Route path='/about' component={AboutScreen}/>
+      <Route path='/resume' component={AboutScreen}/>
+      <Route path='/contact' component={AboutScreen}/>
       {/* Looks linke we are going to render our navigation last because of z-indexing */}
+      <Footer />
       <Navigation />
     </Router>
   );

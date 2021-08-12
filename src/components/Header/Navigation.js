@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { IoMdBeer } from "react-icons/io";
+import { AiOutlineLogout } from "react-icons/ai";
 import { CgMenuRight } from "react-icons/cg";
 import NavItems from "./NavItems";
 import routes from "../../data/navRoutes";
@@ -19,7 +19,7 @@ const Navigation = () => {
     <div>
       {/* Defining font colours to apply to the whole nav div */}
       <div
-        className={`fixed static top-0 left-0 min-h-screen font-medium px-3 bg-blue-800 text-blue-100 px-2 py-7 w-screen md:w-80 space-y-6 ${
+        className={`fixed static top-0 left-0 min-h-screen font-medium px-3 gradient text-blue-100 px-2 py-7 w-screen md:w-80 md:rounded-r-3xl space-y-6 ${
           !showNav ? "transform -translate-x-full" : "transform -translate-x-0"
         } transition duration-500`}
       >
@@ -33,7 +33,7 @@ const Navigation = () => {
                 to={title.path}
                 className="flex items-center space-x-5 pl-5"
               >
-                <IoMdBeer className="h-12 w-12 text-yellow-300" />
+                <AiOutlineLogout className="h-12 w-12" />
                 <span className="text-2xl font-extrabold">{title.text}</span>
               </Link>
             );
