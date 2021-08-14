@@ -30,7 +30,7 @@ const about = {
         in VIM and then using bookdown, pandoc, and RStudio to create a beautiful PDF and
         HTML book. This is arguably the best decision I've ever made.`,
 
-        `I'm also a sucker for remenial analytical work because, I'm just a bit of a loser.
+        `I'm also a sucker for regular old analytical work because, I'm just a bit of a loser.
         I get extreme satisfaction from analysing a set of financial statements or doing
         a discount cash flow analysis.`,
         
