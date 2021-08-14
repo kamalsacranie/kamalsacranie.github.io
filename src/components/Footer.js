@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
 import links from '../data/footerLinks'
 import ExternalLink from "./utilities/ExternalLink";

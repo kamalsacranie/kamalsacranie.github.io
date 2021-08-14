@@ -9,6 +9,9 @@ just apply what classes we want to bundle together */
     .gradient {
       @apply bg-gradient-to-tr from-primary to-secondary;
     }
+    .big-text {
+        @apply text-2xl font-extrabold tracking-wide
+    }
     .reg-text {
         @apply text-center px-6 py-10 sm:text-2xl container mx-auto lg:max-w-screen-lg;
     }
@@ -24,4 +27,9 @@ just apply what classes we want to bundle together */
     .link {
         @apply text-blue-800 animate-pulse hover:underline hover:text-red-500 transition duration-500;
     }
+}
+
+@font-face {
+    font-family: neon;
+    src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
 }
