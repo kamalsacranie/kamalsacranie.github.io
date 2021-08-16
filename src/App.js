@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import HomeScreen from './screens/HomeScreen'
 import AboutScreen from "./screens/AboutScreen";
 import ResumeScreen from "./screens/ResumeScreen";
+import ContactScreen from "./screens/ContactScreen";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <Route exact path='/' component={HomeScreen}/>
       <Route path='/about' component={AboutScreen}/>
       <Route path='/cv' component={ResumeScreen}/>
-      <Route path='/contact' component={AboutScreen}/>
+      <Route path='/contact' component={ContactScreen}/>
       {/* Looks linke we are going to render our navigation last because of z-indexing */}
       <Footer />
       <Navigation />
