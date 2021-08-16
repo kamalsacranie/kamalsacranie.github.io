@@ -13,10 +13,6 @@ const routes = [
         path: '/cv'
     },
     {
-        text: 'Dev Projects',
-        path: '/projects'
-    },
-    {
         text: 'Contact',
         path: '/contact'
     },

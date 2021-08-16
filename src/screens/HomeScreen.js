@@ -10,7 +10,7 @@ const HomeScreen = () => {
       <SplashPage />
       {/* Here we our custom defined Tailwind class, card. The way we define
       these classes is via the index.css. See that file to understand how we define */}
-      <div className="lg:mx-auto single-card max-width-screen4/5 lg:max-w-screen-lg text-white text-center sm:tracking-wide">
+      <div className="lg:mx-auto single-card max-width-screen4/5 lg:max-w-screen-lg text-white text-center sm:tracking-wide transform hover:-translate-y-1 hover:scale-105">
         <h1 className="py-3 text-2xl font-extrabold">About This Site</h1>
         <div className="flex justify-center tracking-widest divide-x p-3 text-lg">
           <div className="p-3 flex-1">REACT</div>

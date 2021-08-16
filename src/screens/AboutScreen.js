@@ -25,9 +25,9 @@ const AboutScreen = () => {
       <div className="reg-text">
         <DataListFormatter 
           data={about} 
-          ulClasses='list-inside list-disc text-left' 
+          ulClasses='list list-disc text-left' 
           liClasses='py-3' 
-          hClasses='big-text pb-2 pt-12'
+          hClasses='inline-block gradient big-text px-5 py-3 text-white rounded-3xl shadow-lg'
           pClasses='py-3'
         />
       </div>
