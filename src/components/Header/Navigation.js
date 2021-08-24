@@ -12,6 +12,7 @@ const Navigation = () => {
 
   useEffect(() => {
     setShowNav(false)
+    window.scrollTo(0,0)
   }, [location])
 
   return (
